@@ -16,9 +16,9 @@ def compare_function(computer, user):
         print("You win!")
     elif computer_attempt == 0 and user_attempt == 2:
         print("Computer wins")
-    elif computer > user:
+    elif computer_attempt > user:
         print("Computer won")
-    elif user > computer:
+    elif user_attempt > computer_attempt:
         print("You won!")
     elif user_attempt == computer_attempt:
         print("It's a draw!")
