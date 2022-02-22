@@ -1,6 +1,7 @@
 import random
 
 
+# compare_function compares the rock, paper, scissors choice of the user and computer, then prints who has won.
 def compare_function(computer, user, computer_wins, user_wins):
     if computer == 0 and user == 2:
         print("Computer wins!")
@@ -17,11 +18,12 @@ def compare_function(computer, user, computer_wins, user_wins):
     elif user == computer:
         print("It's a draw!")
     print("User: ", user_wins, " ", "Computer: ", computer_wins)
+    return computer_wins, user_wins
 
 
-def player_1_function():
+# player_1_function asks user for input and confirms choice, returns value
+def player_function():
     player_choice = int(input("Type in 0 for rock, 1 for paper, or 2 for scissors: "))
-    # lambda function?
     if player_choice == 0:
         print("You chose rock")
     elif player_choice == 1:
@@ -33,6 +35,7 @@ def player_1_function():
     return int(player_choice)
 
 
+# computer_function chooses random integer between 0-2, prints computer's choice and returns value
 def computer_function():
     computer_choice = random.randint(0, 2)
     if computer_choice == 0:
@@ -43,15 +46,13 @@ def computer_function():
         print("Computer chose scissors")
     return computer_choice
 
-
+computer_wins = 0
+user_wins = 0
 rounds = 1
 
 while rounds <= 3:
-    print("Round", rounds)
-    player = player_1_function()
+    print("Round:", rounds)
+    player = player_function()
     computer = computer_function()
-    compare_function(computer, player, 0, 0)
+    computer_wins, user_wins = compare_function(computer, player, computer_wins, user_wins)
     rounds += 1
-
-
-
